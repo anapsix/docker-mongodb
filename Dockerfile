@@ -1,5 +1,5 @@
-# anapsix/php
-FROM alpine:latest
+# anapsix/mongodb
+FROM alpine:edge
 MAINTAINER Anastas Dancha <anapsix@random.io>
 RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk upgrade --update && \
