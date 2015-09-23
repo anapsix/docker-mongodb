@@ -1,16 +1,19 @@
 #!/bin/sh
 set -e
 
-if [ -z "$1" ] || [ "$1" = 'mongod' ]; then
-		gosu mongodb "$@" &
-		pid="$!"
+if [ "${1:0:1}" = '-' ]; then
+  set -- mongod "$@"
+fi
 
-		if ! kill -s 0 "$pid"; then
-			echo 'MongoDB failed to start' >&2
-			exit 1
-		fi
+if [ "$1" = 'mongod' ]; then
+  chown -R mongodb /var/lib/mongodb
 
-		echo 'MongoDB started..'
+  numa='numactl --interleave=all'
+  if $numa true &> /dev/null; then
+    set -- $numa "$@"
+  fi
+
+  exec gosu mongodb "$@"
 fi
 
 exec "$@"
