@@ -1,6 +1,6 @@
 # MongoDB in a box
 
-(non-working yet :) AlpineLinux-base Docker image with MongoDB
+(!!! from @testing !!!) AlpineLinux-base Docker image with MongoDB
 
 [![](https://badge.imagelayers.io/anapsix/mongodb:latest.svg)](https://imagelayers.io/?images=anapsix/mongodb:latest)
 

@@ -11,4 +11,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 EXPOSE 27017
 VOLUME /var/lib/mongodb
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["mongo"]
+CMD ["mongod","--dbpath","/var/lib/mongodb"]
