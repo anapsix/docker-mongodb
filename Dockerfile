@@ -11,4 +11,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 EXPOSE 27017
 VOLUME /var/lib/mongodb
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["mongod","--dbpath","/var/lib/mongodb","--nounixsocket","--journal","--cpu","--noprealloc"]
+CMD ["mongod","--bind_ip","0.0.0.0","--dbpath","/var/lib/mongodb","--nounixsocket","--journal","--cpu","--noprealloc"]
